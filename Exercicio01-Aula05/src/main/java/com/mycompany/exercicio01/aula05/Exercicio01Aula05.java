@@ -24,6 +24,6 @@ public class Exercicio01Aula05 {
         }else if(valor < 200){
             valorf = valor;
         }
-        System.out.println("O valor final com desconto e: " + valorf);
+        System.out.printf("O valor final com desconto e: R$ %,2f\n" + valorf);
     }
 }
