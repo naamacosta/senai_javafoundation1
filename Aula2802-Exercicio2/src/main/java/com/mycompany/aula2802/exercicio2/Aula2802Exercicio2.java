@@ -13,6 +13,7 @@ import java.util.Scanner;
 public class Aula2802Exercicio2 {
 
     public static void main(String[] args) {
+      
         Produto produto = new Produto();
         Scanner scanner = new Scanner(System.in);
         
