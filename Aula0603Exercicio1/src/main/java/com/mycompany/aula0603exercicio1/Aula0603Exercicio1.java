@@ -4,6 +4,9 @@
 
 package com.mycompany.aula0603exercicio1;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author fic
@@ -11,11 +14,21 @@ package com.mycompany.aula0603exercicio1;
 public class Aula0603Exercicio1 {
 
     public static void main(String[] args) {
-        Guitarra guitarra = new Guitarra();
-        Piano piano = new Piano();
+//        Guitarra guitarra = new Guitarra();
+//        Piano piano = new Piano();
+//        
+//        guitarra.tocar();
+//        piano.tocar();
+
+        List<InstrumentoMusical> instrumento = new ArrayList<>();
         
-        guitarra.tocar();
-        piano.tocar();
+        instrumento.add(new Guitarra());
+        instrumento.add(new Piano());
+        
+        for(InstrumentoMusical p : instrumento){
+            p.tocar();
+        }
+
     }
 }
 
