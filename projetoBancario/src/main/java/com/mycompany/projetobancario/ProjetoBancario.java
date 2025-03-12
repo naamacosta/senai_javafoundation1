@@ -13,18 +13,32 @@ import java.util.Scanner;
  * @author fic
  */
 public class ProjetoBancario {
-List<Conta> contas = new ArrayList<>();
+private static List<Conta> contas = new ArrayList<>();
+//Banco banco = new Banco(1);
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int escolha = 0;
         
-        int escolha;
-        
-        
-        //switch(escolha){
-        //    case 1: Banco.criarConta();
-            
+        while (escolha != 5){
+        System.out.println("Escolha a opcao desejada:\n1-Criar Conta\n2-Depositar\n3-Sacar\n4-Exibir conta\n5-Sair");
+        escolha = scanner.nextInt();
+        switch (escolha){
+            case 1: criarConta(); break;
+            case 2: depositar(); break;
+            case 3: sacar(); break;
+            case 4: System.out.println("Informe a conta para exibir informacaoes:"); buscar(scanner.nextInt()); break;
+            case 5: break;
         }
-    
-     public void criarConta(){
+        
+        }
+        System.out.println("Obrigado por usar o sistema!");
+    }
+//}
+//    class Banco{
+//        List<Conta> contas = new ArrayList<>();
+//    
+        
+     public static void criarConta(){
         Scanner scanner = new Scanner(System.in);
         System.out.print("Digite o nome do titular: ");
         String titular = scanner.nextLine();
@@ -33,31 +47,39 @@ List<Conta> contas = new ArrayList<>();
         int tipoConta = scanner.nextInt();
         
         switch(tipoConta){
-            case 1: contas.add(new ContaCorrente(titular, 0, 1));
-            case 2: contas.add(new ContaPoupanca(titular, 0, 1));
+            case 1: contas.add(new ContaCorrente(titular, 0, 1)); break;
+            case 2: contas.add(new ContaPoupanca(titular, 0, 1)); break;
             default: System.out.println("Opção invalida");
         }
     }
      
-     public void depositar(){
+     public static void depositar(){
          Scanner scanner = new Scanner(System.in);
+         System.out.print("Digite a conta para deposito: ");
+         int numeroConta = scanner.nextInt();
+         System.out.print("\nDigite o valor para deposito: ");
+         double valorDeposito = scanner.nextDouble();
          
+         contas.get(numeroConta).depositar(valorDeposito);
      }
      
-     public  buscar(int numeroConta){
-         contas.get(numeroConta);
+     public static void sacar(){
+         Scanner scanner = new Scanner(System.in);
+         System.out.print("Digite a conta para saque: ");
+         int numeroConta = scanner.nextInt();
+         System.out.print("\nDigite o valor para saque: ");
+         double valorDeposito = scanner.nextDouble();
          
-         return contas;
+         contas.get(numeroConta).sacar(valorDeposito);
+     }
+     
+     public static void buscar(int numeroConta){
+         contas.get(numeroConta).exibirInformacoes();
+         
      }
     
-
-    
-    class Banco{
-        
-           
-        
-}
     }
+    
 
 abstract class Conta{
 
@@ -123,7 +145,7 @@ class ContaPoupanca extends Conta{
 
     @Override
     public void depositar(double valor) {
-        saldo += valor;
+        saldo = saldo + valor;
     }
 
     @Override
