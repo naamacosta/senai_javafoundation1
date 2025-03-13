@@ -139,7 +139,7 @@ class ContaPoupanca extends Conta{
         if (saldo > 0 && saldo >= valor){
             saldo -= valor;
         }else{
-            System.out.println("Valor de saque não autorizado");
+            System.out.println("Valor de saque nao autorizado");
         }
     }
 
@@ -150,7 +150,7 @@ class ContaPoupanca extends Conta{
 
     @Override
     public void exibirInformacoes() {
-        System.out.println("A conta de numero: " + numeroConta + " tem como titular: " + titular + " e o saldo é: " + saldo);
+        System.out.println("A conta de numero: " + numeroConta + " tem como titular: " + titular + " e o saldo e: " + saldo);
     }
 
 }
