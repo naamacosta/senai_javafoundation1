@@ -29,7 +29,7 @@ public class AlunoService {
     }
 
     public ResponseEntity<AlunoModel> createAluno(AlunoModel aluno) throws IOException{
-        aluno.setId((long) (alunoModel.size +1));
+        aluno.setId((long) (alunoModels.size() +1));
         alunoModels.add(aluno);
         salvarAlunos();
         return new ResponseEntity<>(aluno, HttpStatus.CREATED);

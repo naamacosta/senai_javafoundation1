@@ -15,12 +15,18 @@ public class AlunoController {
     private final AlunoService alunoService;
 
     public AlunoController(AlunoService alunoService) {
+        System.out.println("AlunoController carregado!");
         this.alunoService = alunoService;
     }
 
     @GetMapping
     public ResponseEntity<List<AlunoModel>> listarAlunos() {
         return alunoService.getAlunos();
+    }
+
+    @GetMapping("/testes")
+    public ResponseEntity<String> getTeste() {
+        return ResponseEntity.ok("Rota funcionando!");
     }
 
     @PostMapping
