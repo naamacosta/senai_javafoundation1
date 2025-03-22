@@ -17,7 +17,7 @@ public class AlunoService {
 
     private static final String FILE_PATH = "src/main/resources/alunos.json";
     private List<AlunoModel> alunoModels;
-    private ObjectMapper objectMapper;
+    private ObjectMapper objectMappe
 
     public AlunoService() throws IOException{
         this.objectMapper = new ObjectMapper();
